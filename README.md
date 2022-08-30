@@ -1,3 +1,7 @@
+# Package Installation
+
+Run `npm install` into folder project.
+
 # Grupo5Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
