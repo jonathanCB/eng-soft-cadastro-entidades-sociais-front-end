@@ -1,8 +1,36 @@
-<div class="menu">
-    <p-tabMenu [model]="items" [activeItem]="items[selected_tab]"></p-tabMenu>
+<!-- <div class="menu">
+
 
     <div class="user-icon">
         <i class="pi pi-user" style="font-size: 2rem"></i>
     </div>
-    <a href="/formulario-edicao-usuario"><i class="pi pi-pencil" style="font-size: 15px; margin-top: 40px; border-bottom: 2px solid;"></i> </a> 
+    <a href="/formulario-edicao-usuario"><i class="pi pi-pencil" style="font-size: 15px; margin-top: 40px; margin-right: 20px; border-bottom: 2px solid;"></i> </a> 
+    <a href="/"><i class="pi pi-sign-out" style="font-size: 15px; margin-top: 40px;"></i> </a> 
+</div> -->
+
+
+<div class="grid align-items-center">
+
+  <div class="col">
+    <p-tabMenu [model]="items"></p-tabMenu>
+  </div>
+
+  <div class="col ml-auto">
+
+    <div class="grid align-items-center ml-4">
+      <div class="col">
+        <i class="pi pi-user" style="font-size: 2rem"></i>
+      </div>
+
+      <div class="col">
+        <a href="/formulario-edicao-usuario"><i class="pi pi-pencil"></i> </a>
+      </div>
+
+      <div class="col">
+        <a href="/"><i class="pi pi-sign-out"></i> </a>
+      </div>
+
+    </div>
+
+  </div>
 </div>

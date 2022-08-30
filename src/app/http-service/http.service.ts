@@ -12,6 +12,7 @@ export class HttpService {
   private url_login = 'http://localhost:3000/usuarios/login';
   private url_cadastrar_usuario = 'http://localhost:3000/usuarios';
   private url_editar_usuario = 'http://localhost:3000/usuarios';
+  private url_deletar_usuario = 'http://localhost:3000/usuarios';
 
   constructor(private http: HttpClient) {}
 
@@ -50,5 +51,10 @@ export class HttpService {
       numero: usuario.numero
     }
     return this.http.put<HttpUsuario>(this.url_editar_usuario, usuario_editar);
+  }
+
+  deleteUsuario(): Observable<HttpUsuario> {
+    const url_delete = `${this.url_deletar_usuario}`
+    return this.http.delete<HttpUsuario>(url_delete);
   }
 }

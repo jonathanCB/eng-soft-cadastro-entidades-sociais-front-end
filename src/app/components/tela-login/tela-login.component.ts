@@ -10,8 +10,8 @@ import { Usuario } from 'src/app/objetos/Usuario';
   styleUrls: ['./tela-login.component.scss'],
 })
 export class TelaLoginComponent implements OnInit {
-  usuario: string = 'email2@teste.com';
-  senha: string = 'senha566';
+  usuario: string = 'jonathan@email.com';
+  senha: string = '3442';
   usuarioLogado!: Usuario;
 
   constructor(private http_service: HttpService, private rota: Router) {}
@@ -27,7 +27,7 @@ export class TelaLoginComponent implements OnInit {
           this.usuarioLogado = resp.usuario;
           this.usuarioLogado.token = resp.token;
           this.usuarioLogado.senha = this.senha;
-          alert(this.visualizacaoUsuario(this.usuarioLogado));
+          alert('Login efetuado com sucesso!\n\n' + this.visualizacaoUsuario(this.usuarioLogado));
           localStorage.setItem('USUARIO', JSON.stringify(this.usuarioLogado));
           this.rota.navigate(['/lista-entidades-sociais']);
           //this.rota.navigate(['/heroes', { usuario: this.usuario }]);

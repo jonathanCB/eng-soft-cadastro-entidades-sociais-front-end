@@ -60,4 +60,11 @@ export class EditarUsuarioComponent implements OnInit {
       this.rota.navigate(['/lista-entidades-sociais']);
     });
   }
+
+  deletarUsuario(): void {
+    this.http_service.deleteUsuario().subscribe((resp) => {
+      alert('Usuário excluído!');
+      console.log(resp);
+    })
+  }
 }
