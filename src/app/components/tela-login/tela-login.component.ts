@@ -10,8 +10,8 @@ import { Usuario } from 'src/app/objetos/Usuario';
   styleUrls: ['./tela-login.component.scss'],
 })
 export class TelaLoginComponent implements OnInit {
-  usuario: string = 'jonathan@email.com';
-  senha: string = '3442';
+  usuario: string = '';
+  senha: string = '';
   usuarioLogado!: Usuario;
 
   constructor(private http_service: HttpService, private rota: Router) {}
