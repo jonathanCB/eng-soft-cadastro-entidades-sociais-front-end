@@ -1,0 +1,49 @@
+<div class="card" style="margin-top: 150px;">
+
+    <h2>Login</h2>
+
+    <div class="field">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input
+          type="text"
+          pInputText
+          placeholder="Username"
+          [(ngModel)]="usuario"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+        <input
+          type="password"
+          pPassword
+          placeholder="Senha"
+          [(ngModel)]="senha"
+        />
+      </div>
+    </div>
+
+    <div class="card m-3">
+      <div class="flex justify-content-end flex-wrap card-container">
+        <a href="">Esqueci meu email ou senha </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="flex justify-content-end flex-wrap card-container">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Criar uma nova conta"
+          class="p-button-help p-button-text mr-3"
+          routerLink="/formulario-cadastro-usuario"
+        ></button>
+        <p-button label="Entrar" (click)="entrarClick()"></p-button>
+      </div>      
+    </div>
+
+</div>
