@@ -1,3 +1,4 @@
+import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroEntidadeSocialComponent } from './components/cadastro-entidade-social/cadastro-entidade-social.component';
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'formulario-cadastro-usuario',
     component: CadastroUsuarioComponent,
+  },
+  {
+    path: 'formulario-edicao-usuario',
+    component: EditarUsuarioComponent,
   },
   {
     path: 'lista-entidades-sociais',

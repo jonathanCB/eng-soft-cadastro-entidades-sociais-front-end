@@ -1,57 +1,29 @@
-<div class="card" style="margin-top: 60px">
+<div class="card" style="margin-top: 60px" [formGroup]="formGroup">
   <h2>Criar uma nova conta</h2>
 
   <h5>Informações gerais</h5>
 
   <div class="field">
-    <input
-      type="text"
-      pInputText
-      placeholder="Nome"
-      class="w-12"
-    />
+    <input formControlName="nome" type="text" pInputText placeholder="Nome" class="w-12" />
   </div>
 
   <div class="field">
-    <input
-      type="text"
-      pInputText
-      placeholder="CPF/CNPJ"
-      class="w-12"
-    />
+    <input formControlName="cpfCnpj" type="text" pInputText placeholder="CPF/CNPJ" class="w-12" />
   </div>
 
   <div class="formgrid grid">
     <div class="field col">
-      <input
-        type="password"
-        pInputText
-        placeholder="Insira uma senha"
-      />
+      <input formControlName="senha" type="password" pInputText placeholder="Insira uma senha" />
     </div>
     <div class="field col">
-      <input
-        type="password"
-        pInputText
-        placeholder="Repita sua senha"
-      />
+      <input formControlName="confirma_senha" type="password" pInputText placeholder="Repita sua senha" />
     </div>
   </div>
 
   <div class="formgrid grid">
     <div class="field col">
-      <input
-        type="text"
-        pInputText
-        placeholder="Email"
-        class="w-16rem mr-3"
-      />
-      <input
-        type="text"
-        pInputText
-        placeholder="Telefone"
-        class="w-10rem"
-      />
+      <input formControlName="email" type="text" pInputText placeholder="Email" class="w-16rem mr-3" />
+      <input formControlName="telefone" type="text" pInputText placeholder="Telefone" class="w-10rem" />
     </div>
   </div>
 
@@ -59,56 +31,28 @@
 
   <div class="formgrid grid">
     <div class="field col">
-      <p-dropdown
-        [options]="estados"
-        [(ngModel)]="estadoSelecionado"
-        optionLabel="nome"
-        optionValue="sigla"
-        placeholder="Selecione o estado"
-      ></p-dropdown>
+      <p-dropdown formControlName="uf" [options]="estados" optionLabel="nome" optionValue="sigla" placeholder="Selecione o estado">
+      </p-dropdown>
     </div>
 
     <div class="field col">
-      <input
-        type="text"
-        pInputText
-        class="p-inputtext-md"
-        placeholder="Município"
-      />
+      <input formControlName="municipio" type="text" pInputText class="p-inputtext-md" placeholder="Município" />
     </div>
   </div>
 
   <div class="formgrid grid">
     <div class="field col">
-      <input
-        id="lastname1"
-        type="text"
-        pInputText
-        placeholder="Logradouro"
-        class="w-17rem mr-3"
-      />
-      <input
-        id="lastname1"
-        type="number"
-        pInputText
-        placeholder="Número"
-        class="w-9rem"
-      />
+      <input formControlName="logradouro" type="text" pInputText placeholder="Logradouro" class="w-17rem mr-3" />
+      <input formControlName="numero" type="number" pInputText placeholder="Número" class="w-9rem" />
     </div>
   </div>
 
   <div class="card">
     <div class="flex justify-content-end flex-wrap card-container">
-      <button
-        pButton
-        pRipple
-        type="button"
-        label="Cancelar"
-        class="p-button-help p-button-text mr-3"
-        routerLink="/"
-      ></button>
+      <button pButton pRipple type="button" label="Cancelar" class="p-button-help p-button-text mr-3"
+        routerLink="/"></button>
 
-      <p-button label="Cria conta" ></p-button>
+      <p-button label="Cria conta" (click)="gravarUsuario()"></p-button>
     </div>
   </div>
 </div>

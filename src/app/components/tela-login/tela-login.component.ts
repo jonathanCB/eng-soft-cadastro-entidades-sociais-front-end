@@ -25,7 +25,10 @@ export class TelaLoginComponent implements OnInit {
       this.http_service.selectUsuario(this.usuario, this.senha).subscribe({
         next: (resp: HttpUsuario) => {
           this.usuarioLogado = resp.usuario;
+          this.usuarioLogado.token = resp.token;
+          this.usuarioLogado.senha = this.senha;
           alert(this.visualizacaoUsuario(this.usuarioLogado));
+          localStorage.setItem('USUARIO', JSON.stringify(this.usuarioLogado));
           this.rota.navigate(['/lista-entidades-sociais']);
           //this.rota.navigate(['/heroes', { usuario: this.usuario }]);
         },
@@ -45,6 +48,7 @@ export class TelaLoginComponent implements OnInit {
             + "\n Município: " + usuarioLogado.municipio
             + "\n Logradouro: " + usuarioLogado.logradouro
             + "\n Número: " + usuarioLogado.numero
+            + "\n TOKEN: " + usuarioLogado.token
     ;
   }
 }

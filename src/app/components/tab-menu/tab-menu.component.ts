@@ -8,7 +8,6 @@ import { MenuItem } from 'primeng/api';
 })
 export class TabMenuComponent implements OnInit {
   @Input() selected_tab!: number;
-
   items: MenuItem[] = [];
 
   activeItem!: MenuItem;

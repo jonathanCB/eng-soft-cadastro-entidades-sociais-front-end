@@ -9,6 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { AppRoutingModule } from './app-routing.module';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 
 import { AppComponent } from './app.component';
@@ -17,8 +18,10 @@ import { TabMenuComponent } from './components/tab-menu/tab-menu.component';
 import { TelaLoginComponent } from './components/tela-login/tela-login.component';
 import { ListaEntidadesSociaisComponent } from './components/lista-entidades-sociais/lista-entidades-sociais.component';
 import { CadastroEntidadeSocialComponent } from './components/cadastro-entidade-social/cadastro-entidade-social.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CadastroUsuarioComponent } from './components/cadastro-usuario/cadastro-usuario.component';
+import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
+import { InterInterceptor } from './interceptor/inter.interceptor';
 
 @NgModule({
   imports: [
@@ -29,6 +32,7 @@ import { CadastroUsuarioComponent } from './components/cadastro-usuario/cadastro
     BrowserAnimationsModule,
     MessageModule,
     FormsModule,
+    ReactiveFormsModule,
     TabMenuModule,
     PasswordModule,
     ButtonModule,
@@ -42,7 +46,15 @@ import { CadastroUsuarioComponent } from './components/cadastro-usuario/cadastro
     ListaEntidadesSociaisComponent,
     TelaLoginComponent,
     CadastroUsuarioComponent,
+    EditarUsuarioComponent,
   ],
   bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterInterceptor,
+      multi: true,
+    },
+  ]
 })
 export class AppModule {}

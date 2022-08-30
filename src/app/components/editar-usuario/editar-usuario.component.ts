@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/http-service/http.service';
-import { Usuario } from 'src/app/objetos/Usuario';
 import { Estado } from 'src/app/objetos/Estado';
+import { Usuario } from 'src/app/objetos/Usuario';
 
 @Component({
-  selector: 'app-cadastro-usuario',
-  templateUrl: './cadastro-usuario.component.html',
-  styleUrls: ['./cadastro-usuario.component.scss'],
+  selector: 'app-editar-usuario',
+  templateUrl: './editar-usuario.component.html',
+  styleUrls: ['./editar-usuario.component.scss']
 })
-export class CadastroUsuarioComponent implements OnInit {
+export class EditarUsuarioComponent implements OnInit {
 
-  novo_usuario!: Usuario;
+  usuario_logado!: Usuario;
+
+  usuario_editado!: Usuario;
 
   formGroup: FormGroup = new FormGroup({
     nome: new FormControl('', [Validators.required]),
@@ -24,9 +26,9 @@ export class CadastroUsuarioComponent implements OnInit {
     uf: new FormControl('', [Validators.required]),
     municipio: new FormControl('', [Validators.required]),
     logradouro: new FormControl('', [Validators.required]),
-    numero: new FormControl('', [Validators.required])
+    numero: new FormControl('', [Validators.required]),
+    token: new FormControl('', [Validators.required]),
   });
-
 
   estados: Estado[] = [];
 
@@ -42,17 +44,20 @@ export class CadastroUsuarioComponent implements OnInit {
     ];
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.usuario_logado = JSON.parse(localStorage.getItem('USUARIO') as string);
+    this.usuario_logado.confirma_senha = ''
+    this.formGroup.setValue(this.usuario_logado)
+  }
 
   gravarUsuario(): void {
-    if (!this.formGroup.valid) {
-      alert('Verifique se você preencheu todos os campos.');
-    } else {
-      this.novo_usuario = this.formGroup.value;
-      this.http_service.insertUsuario(this.novo_usuario).subscribe((resp) => {
-        alert('Usuário cadastrado com sucesso! Faça login.');
-        this.rota.navigate(['/']);
-      });
-    }
+    this.usuario_editado = this.formGroup.value;
+    //this.usuario_editado.senha = this.formGroup.controls['senha'].value;
+    this.http_service.updateUsuario(this.usuario_editado).subscribe(() => {
+      alert('Alterações gravadas com sucesso!');
+      this.usuario_editado.token = this.usuario_logado.token;
+      localStorage.setItem('USUARIO', JSON.stringify(this.usuario_editado));
+      this.rota.navigate(['/lista-entidades-sociais']);
+    });
   }
 }
