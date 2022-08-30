@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
 
-# Package Installation
+## Package Installation
 
 Run `npm install` inside the project root folder.
 
