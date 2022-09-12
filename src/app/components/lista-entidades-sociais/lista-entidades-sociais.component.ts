@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/http-service/http.service';
+import { EntidadeSocial } from 'src/app/objetos/EntidadeSocial';
 
 @Component({
   selector: 'app-lista-entidades-sociais',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaEntidadesSociaisComponent implements OnInit {
 
-  constructor() { }
+  entidades_sociais: EntidadeSocial[] = [];
+
+  constructor(private http_service: HttpService) { }
 
   ngOnInit(): void {
+    this.http_service.selectEntidadesSociais().subscribe((entidadesResp: EntidadeSocial[]) => {
+      this.entidades_sociais = entidadesResp;
+    })
   }
 
 }

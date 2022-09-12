@@ -1,2 +1,30 @@
 <app-tab-menu [selected_tab]="0"></app-tab-menu>
-<p>lista-entidades-sociais works!</p>
+<div style="margin-top: 50px !important"></div>
+<p-table [value]="entidades_sociais" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr style="margin-top: 30px">
+            <th>ID</th>
+            <th>Nome Entidade</th>
+            <th>Finalidade</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>UF</th>
+            <th>Município</th>
+            <th>Logradouro</th>
+            <th>Número</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-entidade>
+        <tr>
+            <td>{{entidade.id}}</td>
+            <td>{{entidade.nome}}</td>
+            <td>{{entidade.objetivos}}</td>
+            <td>{{entidade.email}}</td>
+            <td>{{entidade.telefone}}</td>
+            <td>{{entidade.uf}}</td>
+            <td>{{entidade.municipio}}</td>
+            <td>{{entidade.logradouro}}</td>
+            <td>{{entidade.numero}}</td>
+        </tr>
+    </ng-template>
+</p-table>

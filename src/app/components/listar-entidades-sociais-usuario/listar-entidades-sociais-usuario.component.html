@@ -1,0 +1,129 @@
+<app-tab-menu [selected_tab]="3"></app-tab-menu>
+
+<div style="margin-top: 50px !important"></div>
+
+<div style="max-width: 135vh; overflow: auto;">
+  <p-table [value]="entidades_sociais" dataKey="id" editMode="row" responsiveLayout="scroll" [formGroup]="formGroup">
+    <ng-template pTemplate="header">
+      <tr style="margin-top: 30px">
+        <th>ID</th>
+        <th>Nome Entidade</th>
+        <th>Finalidade</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>UF</th>
+        <th>Município</th>
+        <th>Logradouro</th>
+        <th>Número</th>
+        <th style="text-align:center;">Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-entidade let-editing="editing" let-ri="rowIndex">
+      <tr [pEditableRow]="entidade">
+        <td>{{entidade.id}}</td>
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" formControlName="nome">
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{entidade.nome}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" formControlName="objetivos">
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{entidade.objetivos}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" formControlName="email">
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{entidade.email}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" formControlName="telefone">
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{entidade.telefone}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" formControlName="uf">
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{entidade.uf}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" formControlName="municipio">
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{entidade.municipio}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" formControlName="logradouro">
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{entidade.logradouro}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" formControlName="numero">
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{entidade.numero}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <td style="text-align:center">
+          <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"
+            (click)="onRowEditInit(entidade)" class="p-button-rounded p-button-text"></button>
+
+          <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"
+            (click)="onRowEditSave()" class="p-button-rounded p-button-text p-button-success"></button>
+
+          <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"
+            class="p-button-rounded p-button-text p-button-danger"></button>
+
+          <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-trash"
+            (click)="onRowDeleteSave(entidade)" class="p-button-rounded p-button-text p-button-danger"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>

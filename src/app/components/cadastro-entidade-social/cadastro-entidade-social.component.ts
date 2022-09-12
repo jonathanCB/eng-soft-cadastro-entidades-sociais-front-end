@@ -19,7 +19,7 @@ export class CadastroEntidadeSocialComponent implements OnInit {
 
   formGroup: FormGroup = new FormGroup({
     nome: new FormControl('', [Validators.required]),
-    finalidade: new FormControl('', [Validators.required]),
+    objetivos: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     telefone: new FormControl('', [Validators.required]),
     uf: new FormControl('', [Validators.required]),
@@ -51,10 +51,11 @@ export class CadastroEntidadeSocialComponent implements OnInit {
       alert('Verifique se você preencheu todos os campos.');
     } else {
       this.nova_entidade_social = this.formGroup.value;
-      this.nova_entidade_social.token_usuario = this.usuario_logado.token
-      console.log(this.nova_entidade_social)
-      alert('Entidade social gravada com sucesso! Voltando a lista de entidades sociais...');
-      this.rota.navigate(['/lista-entidades-sociais']);
+      //this.nova_entidade_social.token_usuario = this.usuario_logado.token
+      this.http_service.insertEntidadeSocial(this.nova_entidade_social).subscribe(() => {
+        alert('Entidade social gravada com sucesso! Voltando a lista de entidades sociais...');
+        this.rota.navigate(['/lista-entidades-sociais']);
+      })
     }
   }
 }

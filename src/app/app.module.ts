@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TableModule } from 'primeng/table'
 
 import { AppComponent } from './app.component';
 import { TabMenuComponent } from './components/tab-menu/tab-menu.component';
@@ -23,6 +24,7 @@ import { CadastroUsuarioComponent } from './components/cadastro-usuario/cadastro
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { InterInterceptor } from './interceptor/inter.interceptor';
 import { SobreDesenvolvedoresComponent } from './components/sobre-desenvolvedores/sobre-desenvolvedores.component';
+import { ListarEntidadesSociaisUsuarioComponent } from './components/listar-entidades-sociais-usuario/listar-entidades-sociais-usuario.component';
 
 @NgModule({
   imports: [
@@ -40,6 +42,7 @@ import { SobreDesenvolvedoresComponent } from './components/sobre-desenvolvedore
     InputTextModule,
     DropdownModule,
     InputTextareaModule,
+    TableModule
   ],
   declarations: [
     AppComponent,
@@ -50,6 +53,7 @@ import { SobreDesenvolvedoresComponent } from './components/sobre-desenvolvedore
     CadastroUsuarioComponent,
     EditarUsuarioComponent,
     SobreDesenvolvedoresComponent,
+    ListarEntidadesSociaisUsuarioComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -60,4 +64,4 @@ import { SobreDesenvolvedoresComponent } from './components/sobre-desenvolvedore
     },
   ],
 })
-export class AppModule {}
+export class AppModule { }

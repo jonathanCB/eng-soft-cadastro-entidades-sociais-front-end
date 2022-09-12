@@ -1,7 +1,8 @@
 export class EntidadeSocial {
   constructor(
+    public id: number,
     public nome: string,
-    public finalidade: string,
+    public objetivos: string,
     public email: string,
     public telefone: string,
     public uf: string,
