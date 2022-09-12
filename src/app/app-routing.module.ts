@@ -5,6 +5,7 @@ import { CadastroEntidadeSocialComponent } from './components/cadastro-entidade-
 import { CadastroUsuarioComponent } from './components/cadastro-usuario/cadastro-usuario.component';
 import { ListaEntidadesSociaisComponent } from './components/lista-entidades-sociais/lista-entidades-sociais.component';
 import { TelaLoginComponent } from './components/tela-login/tela-login.component';
+import { SobreDesenvolvedoresComponent } from './components/sobre-desenvolvedores/sobre-desenvolvedores.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'cadastrar-entidade-social',
     component: CadastroEntidadeSocialComponent,
+  },
+  {
+    path: 'sobre-desenvolvedores',
+    component: SobreDesenvolvedoresComponent,
   },
 ];
 

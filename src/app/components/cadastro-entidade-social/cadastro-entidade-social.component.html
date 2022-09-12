@@ -1,5 +1,110 @@
 <app-tab-menu [selected_tab]="1"></app-tab-menu>
-<div class="tela-cadastro-entidade-social"> 
-    <p>cadastro-entidade-social works!</p>
-</div>
 
+<div class="card" style="margin-top: 30px" [formGroup]="formGroup">
+  <div style="display: grid; justify-content: center;">
+    <h2>Nova entidade social</h2>
+    
+    <h5>Informações gerais</h5>
+
+    <div class="field">
+      <input
+        formControlName="nome"
+        type="text"
+        pInputText
+        placeholder="Nome"
+        class="w-27rem"
+      />
+    </div>
+
+    <div class="formgrid grid">
+      <div class="field col">
+        <textarea
+          formControlName="finalidade"
+          rows="5"
+          cols="30"
+          pInputTextarea
+          placeholder="Finalidade/Atividades/Objetivos da entidade"
+          class="w-27rem"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="formgrid grid">
+      <div class="field col">
+        <input
+          formControlName="email"
+          type="text"
+          pInputText
+          placeholder="Email"
+          class="w-16rem mr-3"
+        />
+        <input
+          formControlName="telefone"
+          type="text"
+          pInputText
+          placeholder="Telefone"
+          class="w-10rem"
+        />
+      </div>
+    </div>
+
+    <h5>Endereço</h5>
+
+    <div class="formgrid grid">
+      <div class="field col">
+        <p-dropdown
+          formControlName="uf"
+          [options]="estados"
+          optionLabel="nome"
+          optionValue="sigla"
+          placeholder="Selecione o estado"
+          class="mr-3"
+        >
+        </p-dropdown>
+
+        <input
+          formControlName="municipio"
+          type="text"
+          pInputText
+          class="p-inputtext-md"
+          placeholder="Município"
+          class="w-13rem"
+        />
+      </div>
+    </div>
+
+    <div class="formgrid grid">
+      <div class="field col">
+        <input
+          formControlName="logradouro"
+          type="text"
+          pInputText
+          placeholder="Logradouro"
+          class="w-17rem mr-3"
+        />
+        <input
+          formControlName="numero"
+          type="number"
+          pInputText
+          placeholder="Número"
+          class="w-9rem"
+        />
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="flex justify-content-end flex-wrap card-container">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Cancelar"
+          class="p-button-outlined mr-3"
+          routerLink="/lista-entidades-sociais"
+        ></button>
+
+        <p-button label="Cria conta" (click)="gravarEntidade()"></p-button>
+      </div>
+    </div>
+  </div>
+</div>

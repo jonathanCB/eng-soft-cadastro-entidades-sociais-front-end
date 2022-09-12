@@ -11,10 +11,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { AppComponent } from './app.component';
 import { TabMenuComponent } from './components/tab-menu/tab-menu.component';
-
 import { TelaLoginComponent } from './components/tela-login/tela-login.component';
 import { ListaEntidadesSociaisComponent } from './components/lista-entidades-sociais/lista-entidades-sociais.component';
 import { CadastroEntidadeSocialComponent } from './components/cadastro-entidade-social/cadastro-entidade-social.component';
@@ -22,6 +22,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CadastroUsuarioComponent } from './components/cadastro-usuario/cadastro-usuario.component';
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { InterInterceptor } from './interceptor/inter.interceptor';
+import { SobreDesenvolvedoresComponent } from './components/sobre-desenvolvedores/sobre-desenvolvedores.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { InterInterceptor } from './interceptor/inter.interceptor';
     PasswordModule,
     ButtonModule,
     InputTextModule,
-    DropdownModule
+    DropdownModule,
+    InputTextareaModule,
   ],
   declarations: [
     AppComponent,
@@ -47,6 +49,7 @@ import { InterInterceptor } from './interceptor/inter.interceptor';
     TelaLoginComponent,
     CadastroUsuarioComponent,
     EditarUsuarioComponent,
+    SobreDesenvolvedoresComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -55,6 +58,6 @@ import { InterInterceptor } from './interceptor/inter.interceptor';
       useClass: InterInterceptor,
       multi: true,
     },
-  ]
+  ],
 })
 export class AppModule {}

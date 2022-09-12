@@ -12,7 +12,7 @@ export class TabMenuComponent implements OnInit {
 
   activeItem!: MenuItem;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.items = [
@@ -26,8 +26,12 @@ export class TabMenuComponent implements OnInit {
         icon: 'pi pi-fw pi-building',
         routerLink: ['/cadastrar-entidade-social'],
       },
-      { label: 'Sobre os desenvolvedores', icon: 'pi pi-fw pi-info-circle' },
-      { label: 'Minha entidades sociais', icon: 'pi pi-fw pi-heart' }
+      {
+        label: 'Sobre os desenvolvedores',
+        icon: 'pi pi-fw pi-info-circle',
+        routerLink: ['/sobre-desenvolvedores'],
+      },
+      { label: 'Minhas entidades sociais', icon: 'pi pi-fw pi-heart' },
     ];
 
     this.activeItem = this.items[this.selected_tab];

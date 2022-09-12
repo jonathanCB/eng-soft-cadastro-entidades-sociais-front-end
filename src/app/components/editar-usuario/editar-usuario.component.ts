@@ -64,7 +64,6 @@ export class EditarUsuarioComponent implements OnInit {
   deletarUsuario(): void {
     this.http_service.deleteUsuario().subscribe((resp) => {
       alert('Usuário excluído!');
-      console.log(resp);
     })
   }
 }
