@@ -1,4 +1,4 @@
-# Grupo 5 -Projeto Final (UNISINOS) - Frontend
+# Grupo 5 - Projeto Final (UNISINOS) - Cadastro de entidades sociais - Angular/PrimeNG
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
 
